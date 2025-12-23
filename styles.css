@@ -536,47 +536,111 @@ body {
     margin: 25px 0;
 }
 
-.wedding-flow {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+/* Wedding Flowchart */
+.wedding-flowchart {
     margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-.flow-item {
+.flowchart-row {
     display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.flowchart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 16px;
     background-color: var(--dark-gray);
     border-radius: 12px;
+    min-width: 100px;
+    max-width: 120px;
+    text-align: center;
+    position: relative;
     transition: var(--transition-medium);
+    border: 2px solid transparent;
 }
 
-.flow-item:hover {
-    transform: translateX(10px);
-    background-color: rgba(243, 112, 33, 0.1);
+.flowchart-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(243, 112, 33, 0.15);
+    border-color: var(--orange);
 }
 
-.flow-icon {
-    font-size: 1.5rem;
+.flowchart-item-final {
+    background: linear-gradient(135deg, rgba(243, 112, 33, 0.2), rgba(243, 112, 33, 0.05));
+    border-color: var(--orange);
+}
+
+.flowchart-number {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--orange), #e05a00);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(243, 112, 33, 0.4);
+}
+
+.flowchart-icon {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+}
+
+.flowchart-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.2;
+}
+
+.flowchart-arrow {
+    font-size: 1.4rem;
+    color: var(--orange);
+    font-weight: bold;
+    opacity: 0.8;
     flex-shrink: 0;
 }
 
-.flow-text {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.flowchart-connector-down {
+    font-size: 1.4rem;
+    color: var(--orange);
+    font-weight: bold;
+    opacity: 0.8;
+    margin: 5px 0;
+    align-self: flex-end;
+    margin-right: calc(50% - 60px);
 }
 
-.flow-text strong {
-    font-size: 1rem;
-    color: var(--white);
+.flowchart-row:nth-child(3) .flowchart-connector-down {
+    align-self: flex-start;
+    margin-left: calc(50% - 60px);
+    margin-right: 0;
 }
 
-.flow-text span {
-    font-size: 0.85rem;
-    color: var(--light-gray);
+/* Position the down arrow correctly for snake pattern */
+.wedding-flowchart > .flowchart-connector-down:first-of-type {
+    align-self: flex-end;
+    margin-right: 60px;
+}
+
+.wedding-flowchart > .flowchart-connector-down:last-of-type {
+    align-self: flex-start;
+    margin-left: 60px;
 }
 
 .wedding-closing {
@@ -808,8 +872,26 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .wedding-flow {
-        grid-template-columns: 1fr;
+    .flowchart-row {
+        gap: 6px;
+    }
+    
+    .flowchart-item {
+        min-width: 85px;
+        max-width: 100px;
+        padding: 10px 12px;
+    }
+    
+    .flowchart-icon {
+        font-size: 1.5rem;
+    }
+    
+    .flowchart-label {
+        font-size: 0.7rem;
+    }
+    
+    .flowchart-arrow {
+        font-size: 1.1rem;
     }
 }
 
@@ -929,6 +1011,47 @@ body {
         justify-content: center;
     }
     
+    /* Wedding Flowchart Mobile */
+    .flowchart-row {
+        gap: 5px;
+    }
+    
+    .flowchart-item {
+        min-width: 70px;
+        max-width: 80px;
+        padding: 8px 10px;
+    }
+    
+    .flowchart-number {
+        width: 20px;
+        height: 20px;
+        font-size: 0.65rem;
+        top: -8px;
+        left: -8px;
+    }
+    
+    .flowchart-icon {
+        font-size: 1.3rem;
+        margin-bottom: 4px;
+    }
+    
+    .flowchart-label {
+        font-size: 0.65rem;
+    }
+    
+    .flowchart-arrow,
+    .flowchart-connector-down {
+        font-size: 1rem;
+    }
+    
+    .wedding-flowchart > .flowchart-connector-down:first-of-type {
+        margin-right: 40px;
+    }
+    
+    .wedding-flowchart > .flowchart-connector-down:last-of-type {
+        margin-left: 40px;
+    }
+    
     .scroll-indicator {
         display: none;
     }
@@ -957,8 +1080,40 @@ body {
         padding: 30px 20px;
     }
     
-    .flow-item {
-        padding: 15px;
+    /* Flowchart stacks on very small screens */
+    .flowchart-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .flowchart-item {
+        min-width: 140px;
+        max-width: 160px;
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px 14px;
+    }
+    
+    .flowchart-icon {
+        margin-bottom: 0;
+    }
+    
+    .flowchart-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .flowchart-row-reverse {
+        flex-direction: column;
+    }
+    
+    .flowchart-row-reverse .flowchart-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .flowchart-connector-down,
+    .wedding-flowchart > .flowchart-connector-down:first-of-type,
+    .wedding-flowchart > .flowchart-connector-down:last-of-type {
+        display: none;
     }
 }
 
