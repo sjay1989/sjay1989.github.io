@@ -1080,34 +1080,49 @@ body {
         padding: 30px 20px;
     }
     
-    /* Flowchart stacks on very small screens */
+    /* Flowchart becomes vertical timeline on mobile */
+    .wedding-flowchart {
+        gap: 0;
+    }
+    
     .flowchart-row {
         flex-direction: column;
-        gap: 8px;
-    }
-    
-    .flowchart-item {
-        min-width: 140px;
-        max-width: 160px;
-        flex-direction: row;
-        gap: 10px;
-        padding: 10px 14px;
-    }
-    
-    .flowchart-icon {
-        margin-bottom: 0;
-    }
-    
-    .flowchart-arrow {
-        transform: rotate(90deg);
+        gap: 0;
+        width: 100%;
     }
     
     .flowchart-row-reverse {
         flex-direction: column;
     }
     
-    .flowchart-row-reverse .flowchart-arrow {
-        transform: rotate(90deg);
+    /* Reorder items in reverse row to maintain correct sequence */
+    .flowchart-row-reverse .flowchart-item:nth-child(1) { order: 4; }
+    .flowchart-row-reverse .flowchart-item:nth-child(3) { order: 3; }
+    .flowchart-row-reverse .flowchart-item:nth-child(5) { order: 2; }
+    .flowchart-row-reverse .flowchart-item:nth-child(7) { order: 1; }
+    .flowchart-row-reverse .flowchart-arrow { display: none; }
+    
+    .flowchart-item {
+        min-width: 200px;
+        max-width: 250px;
+        flex-direction: row;
+        gap: 12px;
+        padding: 12px 16px;
+        margin: 6px 0;
+    }
+    
+    .flowchart-icon {
+        margin-bottom: 0;
+        font-size: 1.5rem;
+    }
+    
+    .flowchart-label {
+        font-size: 0.75rem;
+        text-align: left;
+    }
+    
+    .flowchart-arrow {
+        display: none;
     }
     
     .flowchart-connector-down,
