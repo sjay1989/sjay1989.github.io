@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' https://sjay1989.github.io https://img.youtube.com https://i.ytimg.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net; frame-src https://www.instagram.com; upgrade-insecure-requests"
+    />
     <title>
       Jay – Singapore's #1 Trilingual Emcee | Weddings, D&D & Corporate Events |
       English, Mandarin & Tamil
@@ -14,6 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="preload" as="image" href="assets/jay_main_photo.jpeg" />
 
     <!-- Primary SEO Meta Tags -->
     <meta
@@ -93,7 +98,7 @@
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "Jay - Professional Emcee Singapore",
-        "image": "assets/jay_main_photo.jpeg",
+        "image": "https://sjay1989.github.io/assets/jay_main_photo.jpeg",
         "description": "Professional trilingual emcee (English, Mandarin, Tamil) with 12+ years experience hosting weddings, corporate events, dinner & dance, family days, and gala dinners in Singapore and internationally.",
         "url": "https://sjay1989.github.io/",
         "telephone": "+65-9126-5976",
@@ -128,12 +133,11 @@
         ],
         "knowsLanguage": ["English", "Mandarin Chinese", "Tamil"],
         "priceRange": "$$",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5",
-          "reviewCount": "50"
-        },
-        "sameAs": ["https://wa.me/+6591265976"]
+        "sameAs": [
+          "https://wa.me/+6591265976",
+          "https://www.instagram.com/emceejaysg/",
+          "https://www.youtube.com/watch?v=Fl-f2D50Y1I"
+        ]
       }
     </script>
 
@@ -145,9 +149,13 @@
         "name": "Jay",
         "jobTitle": "Professional Emcee",
         "description": "Trilingual emcee fluent in English, Mandarin, and Tamil with over 12 years of experience hosting weddings, corporate events, and gala dinners.",
-        "image": "assets/jay_main_photo.jpeg",
+        "image": "https://sjay1989.github.io/assets/jay_main_photo.jpeg",
         "url": "https://sjay1989.github.io/",
         "knowsLanguage": ["English", "Mandarin Chinese", "Tamil"],
+        "sameAs": [
+          "https://www.instagram.com/emceejaysg/",
+          "https://www.youtube.com/watch?v=Fl-f2D50Y1I"
+        ],
         "worksFor": {
           "@type": "Organization",
           "name": "Jay - Professional Emcee Singapore"
@@ -163,7 +171,7 @@
         "name": "Jay - Professional Emcee Singapore",
         "@id": "https://sjay1989.github.io/",
         "url": "https://sjay1989.github.io/",
-        "image": "assets/jay_main_photo.jpeg",
+        "image": "https://sjay1989.github.io/assets/jay_main_photo.jpeg",
         "description": "Singapore's top Trilingual emcee for weddings, D&Ds, corporate events, and gala dinners. Fluent in English, Mandarin, and Tamil.",
         "address": {
           "@type": "PostalAddress",
@@ -193,37 +201,16 @@
       }
     </script>
 
-    <!-- Structured Data - FAQPage for better search visibility -->
+    <!-- Structured Data - VideoObject -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What languages does Jay speak as an emcee?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Jay is a trilingual emcee fluent in English, Mandarin, and Tamil, making him perfect for multicultural weddings and diverse corporate events in Singapore."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What types of events does Jay host?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Jay hosts weddings (including Chinese and mixed-culture weddings), dinner & dance events, family days, corporate events, gala dinners, conferences, and product launches."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How much experience does Jay have as an emcee?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Jay has over 12 years of professional emcee experience, having hosted events for major brands like Grab, DBS, LVMH, GUCCI, NUH, SAF, and many more."
-            }
-          }
-        ]
+        "@type": "VideoObject",
+        "name": "Emcee Jay highlight reel",
+        "description": "Watch Jay host a live event in Singapore.",
+        "thumbnailUrl": "https://img.youtube.com/vi/Fl-f2D50Y1I/maxresdefault.jpg",
+        "contentUrl": "https://www.youtube.com/watch?v=Fl-f2D50Y1I",
+        "embedUrl": "https://www.youtube.com/embed/Fl-f2D50Y1I"
       }
     </script>
     <!-- Google tag (gtag.js) -->
@@ -290,6 +277,8 @@
               src="assets/jay_main_photo.jpeg"
               alt="Jay - Professional Trilingual Emcee in Singapore specializing in English, Mandarin and Tamil"
               loading="eager"
+              fetchpriority="high"
+              decoding="async"
             />
           </div>
         </div>
@@ -353,6 +342,8 @@
             <img
               src="https://img.youtube.com/vi/Fl-f2D50Y1I/maxresdefault.jpg"
               alt="Watch video on YouTube"
+              loading="lazy"
+              decoding="async"
               style="
                 width: 560px;
                 max-width: 100%;
@@ -400,7 +391,12 @@
         </p>
 
         <div class="events-image">
-          <img src="assets/banner.png" alt="Jay hosting an event" />
+          <img
+            src="assets/banner.png"
+            alt="Jay hosting an event"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <div class="events-grid">
@@ -542,7 +538,12 @@
             </p>
           </div>
           <div class="wedding-hero-image">
-            <img src="assets/jay_wedding.jpg" alt="Jay at a wedding event" />
+            <img
+              src="assets/jay_wedding.jpg"
+              alt="Jay at a wedding event"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
 
@@ -681,6 +682,9 @@
                 frameborder="0"
                 scrolling="no"
                 allowtransparency="true"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                title="Emcee Jay Instagram feed"
                 style="
                   max-width: 100%;
                   border-radius: 12px;
