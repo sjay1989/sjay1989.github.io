@@ -1,11 +1,11 @@
 # robots.txt for Jay - Professional Emcee Singapore
-# https://sjay1989.github.io/
+# https://www.emceejaysg.com/
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://sjay1989.github.io/sitemap.xml
+Sitemap: https://www.emceejaysg.com/sitemap.xml
 
 # Allow all search engines
 User-agent: Googlebot
